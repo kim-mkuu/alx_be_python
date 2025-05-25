@@ -2,7 +2,7 @@
 
 #variables definition
 number1 = 10
-number2 =  5
+number2 = 5
 
 # This script performs basic arithmetic operations: addition, subtraction, and multiplication.
 addition = number1 + number2
