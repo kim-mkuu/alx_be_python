@@ -8,4 +8,4 @@ T = Investment_Duration = 3  # T represents the Time in years
 Interest_Earned = I = P * R * T  # I represents the Interest Earned
 
 # Print the result in a formatted output
-print(f"The simple interest is: {I}")
+print(f"The simple interest is: {Interest_Earned}")
