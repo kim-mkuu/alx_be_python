@@ -16,11 +16,12 @@ match priority:
 
 # Fully customize the reminder based on time sensitivity
 if time_bound == "yes":
-    reminder += " That requires immediate attention today!"
+   reminder += " That requires immediate attention today!"
 elif priority == "low":
     reminder += " Consider completing it when you have free time."
 elif priority == "medium":
-    reminder += " Try to get it done soon."
+   reminder += " Try to get it done soon."
 
 # Display the final customized reminder
 print(reminder)
+
