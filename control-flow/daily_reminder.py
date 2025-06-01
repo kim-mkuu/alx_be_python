@@ -14,7 +14,7 @@ match priority:
     case _:
         reminder = f"Warning: '{task}' has an unrecognized priority level."
 
-# Modify reminder if task is time-sensitive
+# Modify the reminder if task is time-sensitive
 if time_bound == "yes":
     reminder += " That requires immediate attention today!"
 
