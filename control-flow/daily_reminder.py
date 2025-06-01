@@ -1,28 +1,31 @@
-# daily_reminder.py
+# Get task input
+task = input("Enter your task: ")
 
-# Prompt user for task details
-task = input("Enter your task: ").strip()
-priority = input("Priority (high/medium/low): ").strip().lower()
-time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
+# Validate priority input with loop
+while True:
+    priority = input("Priority (high/medium/low): ").strip().lower()
+    if priority in ('high', 'medium', 'low'):
+        break
 
-# Determine task priority only (without extra messages)
+# Validate time-bound input with loop
+while True:
+    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
+    if time_bound in ('yes', 'no'):
+        break
+
+# Process using match-case with catch-all
 match priority:
-    case "high":
-        reminder = f"Reminder: '{task}' is a high priority task."
-    case "medium":
-        reminder = f"Reminder: '{task}' is a medium priority task."
-    case "low":
-        reminder = f"Reminder: '{task}' is a low priority task."
+    case 'high' | 'medium' | 'low':
+        if time_bound == 'yes':
+            reminder = f"Reminder: '{task}' is a {priority} priority task that requires immediate attention today!"
+        else:
+            reminder = f"Note: '{task}' is a {priority} priority task. Consider completing it when you have free time."
     case _:
-        reminder = f"Reminder: '{task}' has an unrecognized priority level."
+        # Fallback for unexpected priority (though validation prevents this)
+        if time_bound == 'yes':
+            reminder = f"Reminder: '{task}' requires immediate attention today!"
+        else:
+            reminder = f"Note: Consider completing '{task}' when you have free time."
 
-# Customize the reminder based on time sensitivity
-if time_bound == "yes":
-    reminder += " That requires immediate attention today!"
-elif priority == "low":
-    reminder += " Consider completing it when you have free time."
-elif priority == "medium":
-    reminder += " Try to get it done soon."
-
-# Display the final customized reminder
-print(reminder)
+# Output final reminder
+print("\n" + reminder)
